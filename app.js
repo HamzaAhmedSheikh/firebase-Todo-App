@@ -8,13 +8,14 @@ console.log('Firebase Todo App');
     // create li tag with text node
     var li = document.createElement('li')
     var liText = document.createTextNode(todo_item.value)
+    var key = firebase.database().ref('todo/todoData').push().key
     var data = {
         student: todo_item.value,
+        key: key
     } 
       
       li.appendChild(liText)
       
-     console.log(data);  
 
      
 
@@ -40,13 +41,27 @@ console.log('Firebase Todo App');
     list.appendChild(li)
     list.setAttribute('class', 'list-group-item');
 
-    todo_item.value = ""
-
-    firebase.database().ref('todo/todoData').push(data)
+    todo_item.value = ""    
+    
+    firebase.database().ref('todo/').push(data)
     
 }
 
- function  
+ function getFirebaseData() {     
+    firebase.database().ref('todo/').on('child_added', function(data){     
+               
+        var liText = data.val().student
+        var text = "";
+         for(var a = 0; a > liText.length; a++) {
+            // document.write(liText[a])
+            text += liText[a] + " ";
+         }
+           document.getElementById("demo").innerHTML = text;
+          console.log(liText);
+    })     
+ }
+
+    
 
 
-       
+ 
