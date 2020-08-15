@@ -37,28 +37,30 @@
     
 
 
-    <div class="div">   
-        <div class="container li">
-          <h1 class="text"> Todo App </h1>
-         <div class="input">
-             <input type="text" id="todo-item" placeholder="Enter Todo"> <br />
-             <button type="button"
-                     class="btn btn-primary btn-sm btns"
-                     onclick="addTodo()"> Add Item </button>
-             <button  type="button"
-                      class="btn btn-primary btn-sm btns" 
-                      >  Delete All  </button>        
-         </div>  
-         
-          <div class="container ul">
-            <ul class="list-group" id="list">            
-            </ul> 
-          </div>  
-         </div> 
-       </div>
+  <div class="div">   
+    <div class="container li">
+      <h1 class="text"> Todo App </h1>
 
-       <button onclick="getFirebaseData()"> see all todos </button>
-       <p id="demo"></p>
+    <div class="input">
+      <input type="text" id="todo-item" placeholder="Enter Todo"> <br />
+      <button type="button"
+              class="btn btn-primary btn-sm btns"
+              onclick="addTodo()">
+           Add Item 
+      </button>
+
+      <button  type="button"
+               class="btn btn-primary btn-sm btns" 
+               onclick="deleteAll()"> 
+          Delete All
+      </button>        
+    </div>  
+     
+    <div class="container ul">
+      <ul class="list-group" id="list"> </ul> 
+    </div>   
+   </div> 
+  </div>  
 
     <script src="./app.js"></script>
 </body>
