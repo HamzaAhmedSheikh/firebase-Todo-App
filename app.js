@@ -24,6 +24,7 @@ firebase.database().ref('todos').on('child_added', function(data){
       var editText = document.createTextNode("EDIT")  
     
       editBtn.setAttribute("class", 'btn btn-primary btn-sm butt')
+      editBtn.setAttribute("id", data.val().key)
       editBtn.setAttribute("onclick", "editItem(this)")
       editBtn.appendChild(editText)       
 
@@ -58,11 +59,17 @@ function deleteAll() {
     list.innerHTML = ''
 }
 
-function editItem(e) {
+function editItem(e) {    
     var val = e.parentNode.firstChild.nodeValue 
     var editValue = prompt("Enter edit value", val)
 
-    e.parentNode.firstChild.nodeValue = editValue
+    var editTodo = {
+      value: editValue,
+      key: e.id,
+    }
+
+     firebase.database().ref('todos').child(e.id).set(editTodo)     
+     e.parentNode.firstChild.nodeValue = editValue
 }
 
 
