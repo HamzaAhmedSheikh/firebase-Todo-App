@@ -45,7 +45,7 @@ function addTodo() {
 
     database.child(key).set(todo)    
 
-    todo_item.value = ""
+    todo_item.value = " ";
 }
 
 
