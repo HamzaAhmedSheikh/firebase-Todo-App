@@ -50,18 +50,19 @@ console.log('Firebase Todo App');
  function getFirebaseData() {     
     firebase.database().ref('todo/').on('child_added', function(data){     
                
-        var liText = data.val().student
+        var liTexts = data.val().student
         var text = "";
-         for(var a = 0; a > liText.length; a++) {
+         for(var a = 0; a > liTexts.length; a++) {
             // document.write(liText[a])
-            text += liText[a] + " ";
+             text += liTexts[a] + " "; 
+                
          }
            document.getElementById("demo").innerHTML = text;
-          console.log(liText);
+          console.log(liTexts);
     })     
  }
 
-    
+ getFirebaseData()
 
 
  
