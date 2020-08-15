@@ -55,10 +55,6 @@ function deleteItem(e) {
   e.parentNode.remove()
 }
 
-function deleteAll() {
-    list.innerHTML = ''
-}
-
 function editItem(e) {    
     var val = e.parentNode.firstChild.nodeValue 
     var editValue = prompt("Enter edit value", val)
@@ -72,6 +68,11 @@ function editItem(e) {
      e.parentNode.firstChild.nodeValue = editValue
 }
 
+function deleteAll() {
+
+  firebase.database().ref('todos').remove()
+  list.innerHTML = ''
+}
 
 
 
